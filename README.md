@@ -4,8 +4,6 @@ En esta practica se fomentaron los conocimeientos sobre la memoria compartida y 
 inclidos los pasos de mensajes. Y se analizaron los temas de multiplicacion secuencial y paralela.
 
 aqui se muestra el funcionamiento del programa:
-![img.png](img.png)
-aqui se genera la matris para los procesos de multiplicacion
 
 ## Ejemplo de la multiplicaicon en secuencial:
 ![img_3.png](img_3.png)
