@@ -17,9 +17,7 @@ public class MemoriaDistribuida extends Consumidor {
             int[][] B = (int[][]) otra.get(1);
             int[][] C = new int[A.length][B[0].length];
             ExecutorService executor = Executors.newFixedThreadPool(2);
-            System.out.println("Memoria Distribuida: ");
-
-            long startTime = System.nanoTime();
+            System.out.println("\nMemoria Distribuida:");
 
             int middle = A.length / 2;
             executor.execute(() -> multiply(A, B, C, 0, middle, "Hilo1"));
@@ -34,11 +32,7 @@ public class MemoriaDistribuida extends Consumidor {
                 executor.shutdownNow();
             }
 
-            long endTime = System.nanoTime();
-            long duration = (endTime - startTime) / 1_000_000; // Convertir a milisegundos
-            System.out.println("Tiempo de ejecución: " + duration + " ms");
-
-            System.out.println("Resultado:");
+            System.out.println("Resultado Memoria Distribuida:");
             imprimir(C);
         }
     }

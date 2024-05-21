@@ -17,9 +17,7 @@ public class MemoriaCompartida extends Consumidor {
             A = (int[][]) otra.get(0);
             B = (int[][]) otra.get(1);
             C = new int[A.length][B[0].length];
-            System.out.println("Memoria Compartida: ");
-
-            long startTime = System.nanoTime();
+            System.out.println("\nMemoria Compartida:");
 
             ExecutorService executor = Executors.newFixedThreadPool(2);
             Future<int[][]> future1 = executor.submit(new MatrixMultiplicationTask(A, B, 0, A.length / 2));
@@ -32,11 +30,7 @@ public class MemoriaCompartida extends Consumidor {
                 combineResults(partialC1, 0);
                 combineResults(partialC2, A.length / 2);
 
-                long endTime = System.nanoTime();
-                long duration = (endTime - startTime) / 1_000_000; // Convertir a milisegundos
-                System.out.println("Tiempo de ejecución: " + duration + " ms");
-
-                System.out.println("Resultado:");
+                System.out.println("Resultado Memoria Compartida:");
                 imprimir();
 
             } catch (InterruptedException | ExecutionException e) {
@@ -56,7 +50,7 @@ public class MemoriaCompartida extends Consumidor {
     public void imprimir() {
         for (int[] row : C) {
             for (int elem : row) {
-                System.out.print(" " + elem + " ");
+                System.out.print(elem + " ");
             }
             System.out.println();
         }
